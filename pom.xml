@@ -9,6 +9,15 @@
   <version>0.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
+  <developers>
+    <developer>
+      <id>iceglow</id>
+      <name>Joakim Lundin</name>
+      <email>joakim.lundin@gmail.com</email>
+      <url>https://github.com/iceglow</url>
+    </developer>
+  </developers>
+
   <build>
     <plugins>
       <plugin>
