@@ -1,18 +1,28 @@
 package eu.gluffs.samples.montyhall;
 
 public final class MontyHall {
+  private static final int GAMES_PER_TEST = 1000;
 
-  private MontyHall() {}
+  private GameRunner change;
+  private GameRunner noChange;
+
+  private MontyHall() {
+    change = new GameRunner(GAMES_PER_TEST);
+    noChange = new GameRunner(GAMES_PER_TEST);
+  }
 
   public static void main(String[] args) {
-    int total = 1000;
+    MontyHall montyHall = new MontyHall();
+    montyHall.play();
+    montyHall.printResult();
+  }
 
-    GameRunner change = new GameRunner(total);
-    GameRunner noChange = new GameRunner(total);
-
+  private void play() {
     change.play(true);
     noChange.play(false);
+  }
 
+  private void printResult() {
     StringBuilder sb = new StringBuilder();
     sb.append("Changing box is ");
 
@@ -28,5 +38,6 @@ public final class MontyHall {
     sb.append("% wins.");
 
     System.out.println(sb.toString());
+
   }
 }
