@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Plays a number of games to figure out the win percentage.
  */
-public class GameRunner {
+public final class GameRunner {
   private List<Game> games;
   private int wins = 0;
 

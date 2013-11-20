@@ -3,7 +3,8 @@ package eu.gluffs.samples.montyhall;
 /**
  * A monty Hall game that can be played with or without changing box after the initial guess.
  */
-public class Game {
+public final class Game {
+
   private boolean[] boxes = {false, true, false};
   private int guess;
 
