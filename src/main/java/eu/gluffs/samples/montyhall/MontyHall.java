@@ -30,7 +30,7 @@ public final class MontyHall {
    */
   private void printResult() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Changing box is ");
+    sb.append("Result: Changing box is ");
 
     if (change.getWins() > noChange.getWins()) {
       sb.append("better. ");
