@@ -9,4 +9,4 @@ Run the test by executing 'mvn package' to get an executable jar.
 
 Running the test from maven
 ---------------------------
-Execute 'mvn exec:java'.
+Execute 'mvn -q compile exec:java'.
