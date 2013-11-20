@@ -1,6 +1,8 @@
 package eu.gluffs.samples.montyhall;
 
-public class MontyHall {
+public final class MontyHall {
+
+  private MontyHall() {}
 
   public static void main(String[] args) {
     int total = 1000;
