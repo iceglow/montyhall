@@ -1,11 +1,16 @@
 package eu.gluffs.samples.montyhall;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
 import static org.easymock.EasyMock.expect;
 import static org.powermock.api.easymock.PowerMock.*;
 
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Game.class})
 public class GameTest {
 
   @Test
