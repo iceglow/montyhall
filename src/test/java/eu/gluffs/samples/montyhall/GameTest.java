@@ -3,6 +3,9 @@ package eu.gluffs.samples.montyhall;
 import org.junit.Test;
 import org.powermock.reflect.Whitebox;
 
+import static org.easymock.EasyMock.expect;
+import static org.powermock.api.easymock.PowerMock.*;
+
 public class GameTest {
 
   @Test
@@ -25,6 +28,46 @@ public class GameTest {
     int guess = Whitebox.getInternalState(game, "guess");
 
     assert guess == expected;
+  }
+
+  @Test
+  public void playCallsChangeBox() {
+    Game spy = createPartialMockForAllMethodsExcept(Game.class, "play");
+
+    spy.changeBox();
+    expectLastCall().once();
+    expect(spy.isCorrect()).andReturn(true).once();
+    replay(spy);
+
+    spy.play(true);
+
+    verify(spy);
+  }
+
+  @Test
+  public void playDontCallChangeBox() {
+    Game spy = createPartialMockForAllMethodsExcept(Game.class, "play");
+
+    expect(spy.isCorrect()).andReturn(true).once();
+    replay(spy);
+
+    spy.play(false);
+
+    verify(spy);
+  }
+
+  @Test
+  public void playReturnsResultOfIsCorrect() {
+    boolean expected = true;
+    Game spy = createPartialMockForAllMethodsExcept(Game.class, "play");
+
+    expect(spy.isCorrect()).andReturn(expected).once();
+    replay(spy);
+
+    boolean result = spy.play(false);
+
+    verify(spy);
+    assert result == expected;
   }
 
   @Test

@@ -31,10 +31,7 @@ public class GameRunner {
    */
   public void play(boolean changeBox) {
     for (Game game : games) {
-      if(changeBox)
-        game.changeBox();
-
-      if(game.isCorrect())
+      if(game.play(changeBox))
         wins++;
     }
   }

@@ -17,6 +17,19 @@ public class Game {
   }
 
   /**
+   * Plays the game.
+   *
+   * @param changeBox whether to change box after the initial guess.
+   * @return true for a win, false otherwise.
+   */
+  public boolean play(boolean changeBox) {
+    if (changeBox)
+      changeBox();
+
+    return isCorrect();
+  }
+
+  /**
    * Changes the guess to another box.
    */
   public void changeBox() {

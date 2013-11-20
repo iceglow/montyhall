@@ -26,7 +26,8 @@ public class GameRunnerTest {
   }
 
   @Test
-  public void playCallsChangeBox() {
+  public void playCallsPlayOnGameWithCorrectValue() {
+    boolean changeBox = false;
     Game game = createMock(Game.class);
     List<Game> games = new ArrayList<Game>(1);
     games.add(game);
@@ -34,29 +35,10 @@ public class GameRunnerTest {
     GameRunner runner = new GameRunner(0);
     Whitebox.setInternalState(runner, "games", games);
 
-    game.changeBox();
-    expectLastCall().once();
-    expect(game.isCorrect()).andReturn(false);
+    expect(game.play(changeBox)).andReturn(false);
     replay(game);
 
-    runner.play(true);
-
-    verify(game);
-  }
-
-  @Test
-  public void playDontCallChangeBox() {
-    Game game = createMock(Game.class);
-    List<Game> games = new ArrayList<Game>(1);
-    games.add(game);
-
-    GameRunner runner = new GameRunner(0);
-    Whitebox.setInternalState(runner, "games", games);
-
-    expect(game.isCorrect()).andReturn(false);
-    replay(game);
-
-    runner.play(false);
+    runner.play(changeBox);
 
     verify(game);
   }
@@ -71,7 +53,7 @@ public class GameRunnerTest {
     Whitebox.setInternalState(runner, "games", games);
     Whitebox.setInternalState(runner, "wins", 0);
 
-    expect(game.isCorrect()).andReturn(true);
+    expect(game.play(false)).andReturn(true);
     replay(game);
 
     runner.play(false);
