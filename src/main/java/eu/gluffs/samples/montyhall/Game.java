@@ -10,10 +10,10 @@ public class Game {
   /**
    * Creates a new Game and records the first guess.
    *
-   * @param guess the box number to guess for 0-2.
+   * @param initialGuess the box number to guess for 0-2.
    */
-  public Game(int guess) {
-    this.guess = guess;
+  public Game(int initialGuess) {
+    this.guess = initialGuess;
   }
 
   /**
