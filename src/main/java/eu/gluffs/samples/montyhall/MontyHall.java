@@ -1,6 +1,5 @@
 package eu.gluffs.samples.montyhall;
 
-
 public class MontyHall {
 
   public static void main(String[] args) {
