@@ -3,4 +3,10 @@ montyhall
 
 Tests the Monty Hall problem.
 
-Run the test by executing 'mvn package' and 'java -jar montyhall-{VERSION}.jar' or by running 'mvn exec:java'.
+Packaging
+---------
+Run the test by executing 'mvn package' to get an executable jar.
+
+Running the test from maven
+---------------------------
+Execute 'mvn exec:java'.
